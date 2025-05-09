@@ -1,26 +1,51 @@
-import React,{ useState} from 'react'
+import React,{ useEffect, useState} from 'react'
 import logo from '../assets/images/logo.svg'
 import iconLight from '../assets/images/icon-arrow-light.svg'
+import iconRed from '../assets/images/icon-arrow-dark.svg'
 import hamburger from '../assets/images/icon-hamburger.svg'
 import close from '../assets/images/icon-close.svg'
 
 const Navbar = () => {
-    const [menu, setMenu] = useState('closed')
+    const [menu, setMenu] = useState(false)
+    const [size, setSize] = useState(window.innerWidth)
+
     const expandOptions = (e) => {
         e.currentTarget.classList.toggle("active");
     }
 
     const handleMenuClick = () => {
-        setMenu(menu === 'closed' ? 'open' : 'closed')
+        setMenu(menu ? false : true)
     }
+
+    useEffect(() => {
+        const nav = document.querySelector(".navDiv")
+        if(menu){
+            nav.classList.add("active")
+        }else{
+            nav.classList.remove("active")
+        } 
+    },[menu])
+
+    useEffect(() => {
+        const handleResize = () => {
+          setSize(window.innerWidth)
+          if(size > 640){
+            setMenuOpen(false)
+          }
+        }
+        window.addEventListener('resize', handleResize)
+        handleResize()
+        return () => window.removeEventListener('resize', handleResize)
+      },[])
+
   return (
     <div className='navbar'>
         <a href="#"><img src={logo} alt="blogr logo" className='logo'/></a>
-        <nav>
+        <nav className='navDiv'>
             <div className='linkDivMain' onClick={(e) => expandOptions(e)}>
                 <div className='linkDiv'>
                     <p>Product</p>
-                    <img src={iconLight} alt="" className='linkIcon'/>
+                    <img src={size < 640 ? iconRed : iconLight} alt="" className='linkIcon'/>
                 </div>
                 <ul className='list'>
                     <li><a href="">Overview</a></li>
@@ -33,7 +58,7 @@ const Navbar = () => {
             <div className='linkDivMain' onClick={(e) => expandOptions(e)}>
                 <div className='linkDiv'>
                     <p>Company</p>
-                    <img src={iconLight} alt="" className='linkIcon'/>
+                    <img src={size < 640 ? iconRed : iconLight} alt="" className='linkIcon'/>
                 </div>
                 <ul className='list'>
                     <li><a href="">Team</a></li>
@@ -45,7 +70,7 @@ const Navbar = () => {
             <div className='linkDivMain' onClick={(e) => expandOptions(e)}>
                 <div className='linkDiv'>
                     <p>Contact</p>
-                    <img src={iconLight} alt="" className='linkIcon'/>
+                    <img src={size < 640 ? iconRed : iconLight} alt="" className='linkIcon'/>
                 </div>
                 <ul className='list'>
                     <li><a href="">Connect</a></li>
@@ -60,7 +85,7 @@ const Navbar = () => {
         </div>
         <div className='iconDiv'>
             {
-                menu === "closed" ? (<button onClick={() => handleMenuClick()}><img src={hamburger} alt="" /></button>) : (<button onClick={() => handleMenuClick()}><img src={close} alt="" /></button>)
+                menu ? (<button onClick={() => handleMenuClick()}><img src={close} alt="" /></button>) : (<button onClick={() => handleMenuClick()}><img src={hamburger} alt="" /></button>)
             }    
         </div>
     </div>
