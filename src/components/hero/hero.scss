@@ -1,0 +1,29 @@
+.hero{
+    background: url('src/assets/images/bg-pattern-intro-mobile.svg') no-repeat center center / cover;
+    background-size: 300%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0 0 0 100px;
+    position: relative;
+    
+    &::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom,#ff896f, #ff5a60);
+        z-index: 1;
+        width: 100%;
+    }
+}
+
+@media (min-width:640px){
+ 
+}
+  
+@media (min-width:768px){
+
+}
+  
+@media (min-width:1024px){
+
+}

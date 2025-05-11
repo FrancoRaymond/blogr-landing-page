@@ -1,9 +1,10 @@
 import React,{ useEffect, useState} from 'react'
-import logo from '../assets/images/logo.svg'
-import iconLight from '../assets/images/icon-arrow-light.svg'
-import iconRed from '../assets/images/icon-arrow-dark.svg'
-import hamburger from '../assets/images/icon-hamburger.svg'
-import close from '../assets/images/icon-close.svg'
+import "./navbar.scss"
+import logo from '../../assets/images/logo.svg'
+import iconLight from '../../assets/images/icon-arrow-light.svg'
+import iconRed from '../../assets/images/icon-arrow-dark.svg'
+import hamburger from '../../assets/images/icon-hamburger.svg'
+import close from '../../assets/images/icon-close.svg'
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false)
@@ -28,15 +29,21 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleResize = () => {
-          setSize(window.innerWidth)
-          if(size > 640){
-            setMenuOpen(false)
+          const nav = document.querySelector(".navDiv");
+          const newWidth = window.innerWidth;
+          setSize(newWidth);
+      
+          if (newWidth > 640) {
+            setMenu(false);
+            nav.classList.remove("active");
           }
-        }
-        window.addEventListener('resize', handleResize)
-        handleResize()
-        return () => window.removeEventListener('resize', handleResize)
-      },[])
+        };
+      
+        window.addEventListener("resize", handleResize);
+        handleResize();
+      
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   return (
     <div className='navbar'>
@@ -77,6 +84,10 @@ const Navbar = () => {
                     <li><a href="">Newsletter</a></li>
                     <li><a href="">Linkedin</a></li>
                 </ul>
+            </div>
+            <div className='mobileBtnDiv'>
+                <button>Login</button>
+                <button>Sign Up</button>
             </div>
         </nav>
         <div className='buttonDiv'>

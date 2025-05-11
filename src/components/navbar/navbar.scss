@@ -1,0 +1,234 @@
+:root {
+    --gray-text: rgb(134, 134, 134);
+    --hover-bg: rgba(255, 255, 255, 0.4);
+    --light-bg: rgba(190, 188, 188, 0.4);
+  }
+  
+  // Reusable button styles
+  %buttonBase {
+    font-size: 16px;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar {
+    padding: 11px 4px;
+    background: black;
+    display: flex;
+    align-items: center;
+    position: relative;
+  
+    .logo {
+      margin-right: 50px;
+      height: 35px;
+    }
+  
+    .navDiv {
+      display: none;
+      align-items: center;
+      gap: 20px;
+  
+      &.active {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        top: 70px;
+        left: 50%;
+        width: 90%;
+        transform: translateX(-50%);
+        padding: 50px 10px;
+        z-index: 1000;
+        border-radius: 5px;
+      }
+    }
+  
+    .linkDivMain {
+      position: relative;
+      color: white;
+      transition: ease-in-out 0.3s;
+  
+      .linkDiv {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: black;
+        font-weight: 600;
+        cursor: pointer;
+      }
+  
+      .list {
+        height: 0;
+        overflow: hidden;
+  
+        li {
+          &:hover {
+            font-weight: 600;
+          }
+  
+          a {
+            color: black;
+          }
+        }
+      }
+  
+      &.active {
+        width: 100%;
+        align-items: center;
+  
+        .linkDiv {
+          justify-content: center;
+  
+          p {
+            color: var(--gray-text);
+          }
+        }
+  
+        .list {
+          height: fit-content;
+          overflow: unset;
+          position: relative;
+          top: 10px;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          padding: 20px 40px 20px 20px;
+          border-radius: 5px;
+          background-color: var(--light-bg);
+  
+          li a {
+            color: var(--gray-text);
+            text-decoration: none;
+          }
+        }
+  
+        .linkIcon {
+          rotate: 180deg;
+        }
+      }
+    }
+  
+    .mobileBtnDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-left: auto;
+      width: 100%;
+  
+      button:nth-child(1) {
+        @extend %buttonBase;
+        background-color: transparent;
+        color: black;
+  
+        &:hover {
+          background-color: rgba(163, 163, 163, 0.4);
+        }
+      }
+  
+      button:nth-child(2) {
+        @extend %buttonBase;
+        color: white;
+        background: linear-gradient(to right, #ff896f, #ff5a60);
+  
+        &:hover {
+          background-color: var(--hover-bg);
+        }
+      }
+    }
+  
+    .buttonDiv {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      margin-left: auto;
+  
+      button {
+        @extend %buttonBase;
+        background-color: transparent;
+        color: white;
+  
+        &:hover {
+          background-color: var(--hover-bg);
+        }
+      }
+    }
+  
+    .iconDiv {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+  
+      button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  // Media Queries (Mobile-first enhancements)
+  
+  @media (min-width: 640px) {
+    .navbar {
+      padding-left: 10px;
+      padding-right: 10px;
+  
+      .mobileBtnDiv {
+        display: none;
+      }
+  
+      .buttonDiv {
+        display: flex;
+      }
+  
+      .navDiv {
+        display: flex;
+        padding: 50px 0;
+      }
+  
+      .iconDiv {
+        display: none;
+      }
+  
+      .linkDivMain {
+        .linkDiv p {
+          color: white;
+          font-weight: 100;
+        }
+  
+        &.active {
+          .list {
+            position: absolute;
+            top: 30px;
+            background-color: white;
+  
+            li a {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .navbar {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .navbar {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+  
