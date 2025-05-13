@@ -1,20 +1,77 @@
+%buttonBase {
+    font-size: 16px;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
 .hero{
     background: url('src/assets/images/bg-pattern-intro-mobile.svg') no-repeat center center / cover;
-    background-size: 300%;
+    background-size: 500%;
     width: 100%;
-    height: 100vh;
     border-radius: 0 0 0 100px;
     position: relative;
+    padding: 150px 0;
+    z-index: 5;
     
     &::before{
         content: '';
         position: absolute;
-        inset: 0;
+        top: 0;
+        left: 0;
         background: linear-gradient(to bottom,#ff896f, #ff5a60);
-        z-index: 1;
-        width: 100%;
+        z-index: 0;
+    }
+
+    .heroTextContainer{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h1{
+            font-size: 35px;
+            color: white;
+        }
+
+        p{
+            padding-left: 20px;
+            padding-right: 20px;
+            color: rgb(236, 236, 236);
+        }
+        .heroBtnDiv{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            button:nth-child(1) {
+                @extend %buttonBase;
+                background-color: white;
+                color: #ff5a60;
+          
+                &:hover {
+                  background-color: rgba(163, 163, 163, 0.4);
+                }
+            }
+          
+              button:nth-child(2) {
+                @extend %buttonBase;
+                color: white;
+                background: transparent;
+                border: 1px solid white;
+          
+                &:hover {
+                  background-color: var(--hover-bg);
+                }
+            }
+        }
     }
 }
+
+
 
 @media (min-width:640px){
  
