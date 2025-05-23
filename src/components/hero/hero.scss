@@ -33,7 +33,7 @@
 
         h1{
             font-size: 35px;
-            color: white;
+            color: black;
         }
 
         p{
@@ -78,9 +78,16 @@
 }
   
 @media (min-width:768px){
+    .hero{
+        .heroTextContainer{
 
+            h1{
+                font-size: 45px;
+            }
+        }
+    }
 }
-  
+
 @media (min-width:1024px){
 
 }

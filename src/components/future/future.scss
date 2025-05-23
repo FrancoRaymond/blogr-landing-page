@@ -1,0 +1,51 @@
+.future{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    padding: 60px 5px;
+
+    h2{
+        text-align: center;
+    }
+
+    .futureInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            h2{
+                color: rgb(0, 0, 61);
+                font-weight: 500;
+            }
+            p{
+                color: gray;
+                line-height: 25px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (min-width:640px){
+    .future{
+    
+        .futureInfo{
+            flex-direction: row;
+        }
+    }  
+}
+  
+@media (min-width:768px){
+  
+}
+
+@media (min-width:1024px){
+
+}

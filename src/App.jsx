@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/navbar/Navbar.jsx'
 import Hero from './components/hero/Hero.jsx'
+import Future from './components/future/Future.jsx'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div>
       <Navbar />
       <Hero />
+      <Future />
     </div>
   )
 }
