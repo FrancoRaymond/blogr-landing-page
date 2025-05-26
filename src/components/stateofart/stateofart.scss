@@ -1,0 +1,21 @@
+.stateOfArt{
+    border-radius: 0 100px 0 100px;
+    margin-top: 150px;
+
+    .imageDiv{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .phones{
+            position: absolute;
+            width: 100%;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .circles{
+           margin-top: -50; 
+        }
+    }
+}
