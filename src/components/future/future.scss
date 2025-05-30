@@ -15,7 +15,7 @@
         justify-content: center;
         gap: 50px;
 
-        div{
+        .textDiv{
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -37,9 +37,25 @@
     .future{
     
         .futureInfo{
-            flex-direction: row;
+            flex-direction: row-reverse;
+            align-items: center;
+
+            .imageDiv{  
+                width: 50%;
+
+                img{
+                    
+                    border: 1px solid red;
+                    width: 100%;
+                }
+            }
+            
+            .textDiv{
+                width: 50%;
+                
+            }
         }
-    }  
+    }
 }
   
 @media (min-width:768px){

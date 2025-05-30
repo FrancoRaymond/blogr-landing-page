@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.svg'
 
 const Footer = () => {
   return (
-    <div>
+    <div className='footer'>
         <img src={logo} alt="" />
         <div>
             <h3>Product</h3>
