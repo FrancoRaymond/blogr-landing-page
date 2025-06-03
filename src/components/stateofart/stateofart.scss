@@ -1,11 +1,14 @@
 .stateOfArt{
     border-radius: 0 100px 0 100px;
     margin-top: 150px;
+    background-color: #3a3b59;
+    padding-bottom: 100px;
 
     .imageDiv{
         display: flex;
         flex-direction: column;
         position: relative;
+        z-index: 0;
 
         .phones{
             position: absolute;
@@ -16,6 +19,63 @@
         }
         .circles{
            margin-top: -50; 
+        }
+    }
+    .textDiv{
+        z-index: 100; 
+
+        h2{
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            margin-top: -80px;
+        }
+        p{
+            color: #cecece;
+            margin-top: 25px;
+            line-height: 25px;
+            text-align: center;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }  
+}
+
+@media (min-width:768px){  
+    .stateOfArt{
+        display: flex;
+        padding-bottom: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+        
+
+        .imageDiv{
+            size: 50%;
+
+            .circles{
+                max-width: 400px;
+            }
+            .phones{
+                max-width: 400px;
+                margin-top: 100px;
+            }
+        }
+
+        .textDiv{
+            padding: 70px 10px 70px 0;
+            max-width: 500px;
+
+            h2{
+                margin-top: unset;
+                text-align: left;
+            }
+
+            p{
+                text-align: left;
+            }
         }
     }
 }

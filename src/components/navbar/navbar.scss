@@ -16,10 +16,10 @@
   
   .navbar {
     padding: 11px 4px;
-    background: black;
     display: flex;
     align-items: center;
     position: relative;
+    z-index: 100;
   
     .logo {
       margin-right: 50px;
@@ -176,7 +176,6 @@
     }
   }
   
-  // Media Queries (Mobile-first enhancements)
   
 @media (min-width: 640px) {
   .navbar {
